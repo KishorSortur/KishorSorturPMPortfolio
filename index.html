@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kishor Sortur — Product Manager, Technical PM Track</title>
+<meta name="description" content="Portfolio of Kishor Sortur: the ixigo Confident Alternatives capstone, funnel/AARRR/PRD case studies, and an engineering background in ML and embedded systems.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231F6F5C'/%3E%3Ctext x='32' y='42' font-family='Menlo,monospace' font-size='26' fill='white' text-anchor='middle'%3EKS%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#EEF0EE;
+    --panel:#FFFFFF;
+    --ink:#14181C;
+    --ink-soft:#4B535A;
+    --ink-faint:#828B87;
+    --accent:#1F6F5C;
+    --accent-soft:#E1EBE7;
+    --line:#D7DAD6;
+    --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:var(--font);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+  }
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  img{max-width:100%;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* Nav */
+  header.site{
+    position:sticky; top:0; z-index:20; background:rgba(238,240,238,.92);
+    backdrop-filter:blur(6px); border-bottom:1px solid var(--line);
+  }
+  .navbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+  .brand{font-weight:700; font-size:1rem; color:var(--ink); letter-spacing:-0.01em;}
+  nav.links{display:flex; gap:22px;}
+  nav.links a{color:var(--ink-soft); font-size:.92rem;}
+  nav.links a:hover{color:var(--accent);}
+  .menu-btn{display:none; background:none; border:1px solid var(--line); border-radius:6px; padding:6px 10px; font-size:.9rem; color:var(--ink);}
+  @media (max-width:640px){
+    nav.links{display:none; position:absolute; top:100%; left:0; right:0; background:var(--panel); flex-direction:column; gap:0; border-bottom:1px solid var(--line);}
+    nav.links.open{display:flex;}
+    nav.links a{padding:12px 24px; border-top:1px solid var(--line);}
+    .menu-btn{display:inline-block;}
+  }
+
+  /* Spine */
+  .spine{position:relative;}
+  .spine::before{
+    content:""; position:absolute; left:-18px; top:6px; bottom:6px; width:1px; background:var(--line);
+  }
+  section.node{position:relative; padding:56px 0 8px;}
+  section.node::before{
+    content:""; position:absolute; left:-22px; top:60px; width:7px; height:7px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 0 3px var(--bg);
+  }
+  @media (max-width:640px){ .spine::before, section.node::before{ display:none; } }
+
+  h1,h2,h3{font-family:var(--font); font-weight:700; letter-spacing:-0.015em; margin:0 0 .5em;}
+  h2{font-size:1.5rem; color:var(--ink);}
+  h3{font-size:1.08rem;}
+  .eyebrow{color:var(--ink-faint); font-size:.85rem; margin:0 0 .3em;}
+  p{margin:0 0 1em; color:var(--ink-soft);}
+  p:last-child{margin-bottom:0;}
+
+  /* Hero */
+  .hero{padding:76px 0 40px;}
+  .hero h1{font-size:2.5rem; line-height:1.08;}
+  .hero .role{font-size:1.05rem; color:var(--accent); font-weight:600; margin-bottom:14px;}
+  .hero .lede{font-size:1.12rem; color:var(--ink-soft); max-width:56ch;}
+  .cta-row{display:flex; gap:12px; margin-top:26px; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:10px 18px; border-radius:7px; font-size:.94rem; font-weight:600;}
+  .btn.primary{background:var(--accent); color:#fff;}
+  .btn.primary:hover{background:#175A4A; text-decoration:none;}
+  .btn.ghost{border:1px solid var(--line); color:var(--ink);}
+  .btn.ghost:hover{border-color:var(--accent); color:var(--accent); text-decoration:none;}
+
+  .stats{display:flex; gap:28px; margin-top:38px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:22px;}
+  .stat b{display:block; font-family:var(--mono); font-size:1.15rem; color:var(--ink);}
+  .stat span{font-size:.85rem; color:var(--ink-faint);}
+
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .tag{font-family:var(--mono); font-size:.78rem; background:var(--accent-soft); color:var(--accent); padding:4px 9px; border-radius:5px;}
+
+  /* Capstone */
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin:18px 0;}
+  .metric-row{display:flex; gap:26px; flex-wrap:wrap; margin-top:6px;}
+  .metric b{display:block; font-family:var(--mono); font-size:1.3rem; color:var(--accent);}
+  .metric span{font-size:.82rem; color:var(--ink-faint);}
+  blockquote{margin:14px 0; padding:10px 0 10px 16px; border-left:2px solid var(--accent); color:var(--ink-soft); font-style:italic; font-size:.96rem;}
+  blockquote footer{font-style:normal; font-size:.8rem; color:var(--ink-faint); margin-top:4px;}
+  .feature{border-top:1px solid var(--line); padding-top:14px; margin-top:14px;}
+  .feature:first-child{border-top:none; margin-top:0; padding-top:0;}
+  .rice{font-family:var(--mono); font-size:.8rem; color:var(--accent); background:var(--accent-soft); padding:2px 8px; border-radius:5px; margin-left:8px;}
+
+  /* Case study grid */
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px;}
+  @media (max-width:640px){ .grid{grid-template-columns:1fr;} }
+  .card{border:1px solid var(--line); border-radius:10px; padding:18px 20px; background:var(--panel);}
+  .card h3{margin-bottom:.4em;}
+  .card p{font-size:.92rem;}
+
+  /* Experience */
+  .role-item{padding:16px 0; border-bottom:1px solid var(--line);}
+  .role-item:last-child{border-bottom:none;}
+  .role-head{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:baseline;}
+  .role-title{font-weight:700;}
+  .role-org{color:var(--ink-soft); font-weight:500;}
+  .role-tag{font-size:.78rem; color:var(--accent); font-style:italic;}
+  .role-dates{font-family:var(--mono); font-size:.82rem; color:var(--ink-faint); white-space:nowrap;}
+  ul.role-bullets{margin:8px 0 0; padding-left:18px;}
+  ul.role-bullets li{color:var(--ink-soft); font-size:.94rem; margin-bottom:6px;}
+
+  footer.site{padding:60px 0 70px; border-top:1px solid var(--line); margin-top:40px;}
+  .contact-links{display:flex; gap:20px; flex-wrap:wrap; margin-top:10px;}
+  .fine{color:var(--ink-faint); font-size:.82rem; margin-top:30px;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap navbar">
+    <span class="brand">Kishor Sortur</span>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#capstone">Capstone</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap spine">
+
+  <section class="hero node" id="top">
+    <div class="role">Product Manager — Technical PM track</div>
+    <h1>Kishor Sortur</h1>
+    <p class="lede">I bring an engineer's rigor to product decisions — from embedded systems and ML to product strategy, funnel analysis, and go-to-market design.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#capstone">View the capstone</a>
+      <a class="btn ghost" href="./resume.pdf">Download résumé</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>5</b><span>end-to-end case studies</span></div>
+      <div class="stat"><b>1</b><span>capstone: 0→1 product strategy</span></div>
+      <div class="stat"><b>3+ yrs</b><span>across ML, embedded systems & DevOps</span></div>
+    </div>
+  </section>
+
+  <section class="node" id="about">
+    <div class="eyebrow">About</div>
+    <h2>Why a technical PM</h2>
+    <p>Most of my hands-on experience is on the engineering side — debugging embedded systems, building ML pipelines for anomaly detection, tracing production incidents to root cause. That's the same muscle product management asks for: take an ambiguous, messy problem, find the signal, and make a defensible call. I'm layering PM frameworks — AARRR, RICE, PRD writing, North Star metrics — on top of that foundation, not instead of it.</p>
+    <div class="tags">
+      <span class="tag">AARRR</span><span class="tag">RICE</span><span class="tag">PRD writing</span>
+      <span class="tag">Funnel &amp; cohort analysis</span><span class="tag">North Star metrics</span>
+      <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">TensorFlow</span>
+    </div>
+  </section>
+
+  <section class="node" id="capstone">
+    <div class="eyebrow">Capstone project — completed 2026</div>
+    <h2>Confident Alternatives — ixigo Product Capstone</h2>
+    <p>A complete 9-step PM capstone (academic case study): research, problem framing, solution design, prototyping, GTM, and metrics — for helping train travellers resolve an unavailable booking with confidence.</p>
+
+    <div class="panel">
+      <h3>The challenge</h3>
+      <p>ixigo Trains users who hit an unavailable preferred train only resolve the booking 26% of the time within 24 hours. Target: 42%.</p>
+
+      <h3>Research</h3>
+      <p>20 survey responses + 1 in-depth interview showed this wasn't one problem — it was a single barrier (inability to quickly and confidently reach a confirmed booking) surfacing two ways: ~40% hit confirmation-path failure, ~60% hit manual comparison fatigue.</p>
+      <blockquote>"For me the problem is confirmation of tickets on my desired date and class — not how to find alternatives."<footer>— research interview</footer></blockquote>
+      <blockquote>"Frustrating when I have to open several trains and compare them one by one, especially when seats are getting booked while I'm checking."<footer>— survey respondent</footer></blockquote>
+
+      <h3>The solution</h3>
+      <div class="feature">
+        <strong>Resurface Existing Alternatives</strong><span class="rice">RICE 113.3</span>
+        <p>Automatically surfaces ixigo's own underused alternate-booking tools the moment a preferred train is unavailable — ranked, confidence-labeled (High/Medium/Low, never a raw percentage), with a visible "ranked by fit for you, not by partner" fairness commitment.</p>
+      </div>
+      <div class="feature">
+        <strong>Confirmation-Odds Explainer</strong><span class="rice">RICE 80.0</span>
+        <p>A lightweight, optional explainer addressing the trust barrier directly — why a confidence label means what it means, without a forced tutorial.</p>
+      </div>
+
+      <h3>Impact</h3>
+      <div class="metric-row">
+        <div class="metric"><b>26% → 42%</b><span>target resolution rate</span></div>
+        <div class="metric"><b>~₹38.8 cr</b><span>estimated incremental annual revenue (capstone model)</span></div>
+        <div class="metric"><b>19 slides</b><span>final presentation + published prototype</span></div>
+      </div>
+      <p style="margin-top:14px;"><a href="https://ixigo-confident-alternatives.lovable.app">View live prototype →</a></p>
+    </div>
+  </section>
+
+  <section class="node" id="case-studies">
+    <div class="eyebrow">Case studies</div>
+    <h2>Other product work</h2>
+    <p>Framework-led studies covering growth, retention, prioritization, and spec writing. Full detail in each write-up.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Zomato — Funnel &amp; retention</h3>
+        <p>Mapped an 8-stage funnel, ran cohort analysis, and proposed a North Star + ladder-metrics system for a food delivery platform.</p>
+      </div>
+      <div class="card">
+        <h3>X (Twitter) — AARRR &amp; growth</h3>
+        <p>Mapped all 5 AARRR stages, defined 5 growth epics, and RICE-scored them into a prioritized roadmap.</p>
+      </div>
+      <div class="card">
+        <h3>VitaFit — PRD &amp; UX audit</h3>
+        <p>Wrote a complete PRD for a fitness-app feature pair, plus a separate Nielsen heuristic audit of a checkout flow.</p>
+      </div>
+      <div class="card">
+        <h3>EdTech — Recommendation PRD</h3>
+        <p>Designed a multi-persona recommendation system PRD with full NFRs and a personalization-vs-privacy trade-off analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="node" id="experience">
+    <div class="eyebrow">Experience</div>
+    <h2>Where I've built</h2>
+
+    <div class="role-item">
+      <div class="role-head">
+        <div><span class="role-title">DevOps / AI Intern</span> — <span class="role-org">Caze Labs Pvt. Ltd</span> <span class="role-tag">(M.Tech Industry Internship)</span></div>
+        <div class="role-dates">Nov 2025 – Jan 2026</div>
+      </div>
+      <ul class="role-bullets">
+        <li>Analyzed recurring failure patterns across application logs with a custom Python tool, turning raw technical signals into prioritized, actionable fixes for the engineering team — early practice in triaging problems by impact rather than urgency.</li>
+        <li>Partnered with engineering to shape CI/CD pipeline requirements (Jenkins, Docker, SonarQube quality gates), weighing deployment speed against release quality.</li>
+      </ul>
+    </div>
+
+    <div class="role-item">
+      <div class="role-head">
+        <div><span class="role-title">Application Support Engineer</span> — <span class="role-org">Accenture</span> <span class="role-tag">(M.Tech Industry Internship)</span></div>
+        <div class="role-dates">Jul 2024 – Jan 2025</div>
+      </div>
+      <ul class="role-bullets">
+        <li>Sat between end users and engineering, diagnosing production incidents (P1/P2) and reframing technical root causes into problem statements that development and DevOps teams could act on within Agile sprints.</li>
+        <li>Mined incident and usage logs across Oracle, Tableau, and ERP systems with SQL and Python, surfacing patterns that helped the team prioritize which recurring issues to fix first by business and user impact.</li>
+      </ul>
+    </div>
+
+    <div class="role-item">
+      <div class="role-head">
+        <div><span class="role-title">Professional Upskilling</span> — <span class="role-org">DevOps Certification, upGrad</span></div>
+        <div class="role-dates">2023 (~6 months)</div>
+      </div>
+      <ul class="role-bullets">
+        <li>Completed an intensive DevOps program (CI/CD pipelines, containerization, cloud fundamentals) between the Harman and Accenture roles.</li>
+      </ul>
+    </div>
+
+    <div class="role-item">
+      <div class="role-head">
+        <div><span class="role-title">Associate Software Engineer, Embedded Systems &amp; ML</span> — <span class="role-org">Harman Connected Services</span></div>
+        <div class="role-dates">May 2022 – May 2023</div>
+      </div>
+      <ul class="role-bullets">
+        <li>Designed automated validation frameworks for embedded systems, covering functional, regression, and integration testing.</li>
+        <li>Built an ML-based predictive maintenance pipeline end-to-end — data preprocessing through real-time inference on embedded hardware.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="node" id="research">
+    <div class="eyebrow">Research</div>
+    <h2>Research &amp; technical projects</h2>
+
+    <div class="role-item">
+      <div class="role-head">
+        <div class="role-title">ISP-Scale Network Anomaly Detection</div>
+        <div class="role-dates">Sept 2024 – Present</div>
+      </div>
+      <p style="margin-top:6px; font-size:.94rem;">Simulated large-scale ISP network traffic to generate realistic datasets for Interest Flooding Attack detection in Named Data Networking. Built and evaluated anomaly detection models (Isolation Forest, LOF, One-Class SVM). Co-authored a paper on Federated and Continual Learning for NDN security.</p>
+    </div>
+
+    <div class="role-item">
+      <div class="role-head">
+        <div class="role-title">Predictive Maintenance — End-to-End ML Pipeline</div>
+        <div class="role-dates">2022 – 2023</div>
+      </div>
+      <p style="margin-top:6px; font-size:.94rem;">Built a complete ML pipeline for time-series anomaly detection on embedded sensor data — preprocessing, feature engineering, model training, and production inference on embedded hardware.</p>
+    </div>
+  </section>
+
+  <section class="node" id="education">
+    <div class="eyebrow">Education</div>
+    <h2>Academics</h2>
+    <div class="role-item">
+      <div class="role-head">
+        <div class="role-title">Ramaiah Institute of Technology</div>
+        <div class="role-dates">2024 – Present</div>
+      </div>
+      <p style="margin-top:4px; font-size:.94rem;">M.Tech, Computer Network Technology · CGPA 7.8</p>
+    </div>
+    <div class="role-item">
+      <div class="role-head">
+        <div class="role-title">Savitribai Phule Pune University</div>
+        <div class="role-dates">2019 – 2022</div>
+      </div>
+      <p style="margin-top:4px; font-size:.94rem;">B.E., Electronics &amp; Telecommunication · CGPA 8.7</p>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:56px;">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's talk</h2>
+    <p>Open to Associate Product Manager, Product Analyst, and Technical Product Manager roles.</p>
+    <div class="contact-links">
+      <a href="mailto:kvsortur@gmail.com">kvsortur@gmail.com</a>
+      <a href="tel:+919405846668">+91 9405846668</a>
+      <a href="https://linkedin.com/in/kishorsortur">linkedin.com/in/kishorsortur</a>
+      <a href="https://github.com/kishorsortur">github.com/kishorsortur</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="fine">© 2026 Kishor Sortur. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('navLinks');
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); });
+  });
+</script>
+
+</body>
+</html>
